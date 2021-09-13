@@ -4,41 +4,41 @@ const c3cgroup = document.getElementById('c3c-group')
 const prettygroup = document.getElementById('pretty-group')
 const bargroup = document.getElementById('bar-group')
 
-// console.log(changItem.length)
-// for (let i = 0; i < changItem.length; i++) {
-//   console.log(i)
-//   changItem[i].addEventListener('click', function (e) {
-//     console.log(i)
-//     if (i == 0) {
-//       console.log('0')
-//       vipgroup.style.display = 'block'
-//       prettygroup.style.display = 'none'
-//       c3cgroup.style.display = 'none'
-//       bargroup.style.display = 'none'
-//     }
-//     if (i == 1) {
-//       console.log('1')
-//       vipgroup.style.display = 'none'
-//       prettygroup.style.display = 'block'
-//       c3cgroup.style.display = 'none'
-//       bargroup.style.display = 'none'
-//     }
-//     if (i == 2) {
-//       console.log('2')
-//       vipgroup.style.display = 'none'
-//       prettygroup.style.display = 'none'
-//       c3cgroup.style.display = 'block'
-//       bargroup.style.display = 'none'
-//     }
-//     if (i == 3) {
-//       console.log('3')
-//       vipgroup.style.display = 'none'
-//       prettygroup.style.display = 'none'
-//       c3cgroup.style.display = 'none'
-//       bargroup.style.display = 'block'
-//     }
-//   })
-// }
+console.log(changItem.length)
+for (let i = 0; i < changItem.length; i++) {
+  console.log(i)
+  changItem[i].addEventListener('click', function (e) {
+    console.log(i)
+    if (i == 0) {
+      console.log('0')
+      vipgroup.style.display = 'block'
+      prettygroup.style.display = 'none'
+      c3cgroup.style.display = 'none'
+      bargroup.style.display = 'none'
+    }
+    if (i == 1) {
+      console.log('1')
+      vipgroup.style.display = 'none'
+      prettygroup.style.display = 'block'
+      c3cgroup.style.display = 'none'
+      bargroup.style.display = 'none'
+    }
+    if (i == 2) {
+      console.log('2')
+      vipgroup.style.display = 'none'
+      prettygroup.style.display = 'none'
+      c3cgroup.style.display = 'block'
+      bargroup.style.display = 'none'
+    }
+    if (i == 3) {
+      console.log('3')
+      vipgroup.style.display = 'none'
+      prettygroup.style.display = 'none'
+      c3cgroup.style.display = 'none'
+      bargroup.style.display = 'block'
+    }
+  })
+}
 
 //////////////////假json資料/////////////////////
 let youLikeJson = [
