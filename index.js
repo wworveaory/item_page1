@@ -146,7 +146,7 @@ recommended.innerHTML = recommendedItem
 
 const itemTranslateX=document.querySelector('.transformX')
 itemTranslateX.addEventListener('touchmove', function(event){
-  var touch = event.targetTouches[1]
+  var touch = event.targetTouches[0]
   itemTranslateX.style.left = touch.pageX('500px');
 
   console.log(event.target.closest('.index-box1'))
