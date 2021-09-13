@@ -40,7 +40,7 @@ for (let i = 0; i < changItem.length; i++) {
   })
 }
 
-//////////////////假json資料/////////////////////
+//////////////////假json資料//////1///////////////
 let youLikeJson = [
   {
     itemCName: 'mac',
