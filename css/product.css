@@ -490,7 +490,11 @@ nav span {
   width: 3200px;
   display: flex;
   /* margin: 0 0.5%; */
+  /* transform:translateX(0px); */
 }
+/* .transformX{
+  transform:translateX(100px);
+} */
 
 .index-box {
   width:150px;
