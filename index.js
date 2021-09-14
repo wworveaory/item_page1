@@ -144,12 +144,44 @@ for (let i = 0; i < youLikeJson.length; i++) {
 recommended.innerHTML = recommendedItem
 ////////////////////////////////////////////////////////////////////////////////////
 
-const itemTranslateX=document.querySelector('.transformX')
-itemTranslateX.addEventListener('touchmove', function(event){
-  var touch = event.targetTouches[0]
-  itemTranslateX.style.left = touch.pageX('50px');
-  itemTranslateX.style.top = touch.pageX('50px');
 
-  console.log(event.target.closest('.index-box1'))
+var xhr = new XMLHttpRequest();
+// console.log(xhr)
+// 方法
+xhr.open('post','https://hexschool.github.io/ajaxHomework/data.json',true)
+//open功能 格式 .要讀取的網址.同步與非同步
+//格式get(讀取)那網址的資料 post(傳送資料到伺服器)
+// readyStated
+//0-已經生產一個xmlhttprequest 但還沒連結你要的資料
+//1 -用了open 但資料還沒送出去
+//2-偵測到你有send
+//3.loading
+//4.撈到內容了
+//responseText要拿到資訊
+// xhr.onreadystatechange = function(){
+//     if(xhr.readyState === 4 ){
+//         if(xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+//             console.log(xhr.responseText);
+//         }
+//     }
+// }
+// // 处理请求参数
+// postData = {"name1":"value1","name2":"value2"};
+// postData = (function(value){
+// var dataString = "";
+// for(var key in value){
+//      dataString += key+"="+value[key]+"&";
+// };
+//   return dataString;
+// }(postData));
+// // 设置请求头
+// xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+// // 异常处理
+// xhr.onerror = function() {
+//    console.log('Network request failed')
+// }
+// // 跨域携带cookie
+// xhr.withCredentials = true;
+// // 发出请求
+// xhr.send(postData);
 
-})
