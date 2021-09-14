@@ -157,7 +157,7 @@ console.log(xhr.responseText)
 //那我該如何 設定在什麼情況才可以撈出資料呢?
 // 用 onload 意思指當我確認他跑完以後 再去執行這個事件
 xhr.onload=function(){
-  console.
+  // console.
 }
 
 
