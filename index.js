@@ -40,18 +40,7 @@ let youLikeJson = [
     itemInfo: '商品描述',
     photoUrl: '2020112414340059.jpg',
   },
-  {
-    itemCName: 'lara',
-    itemPrice: 777,
-    itemInfo: '商品描述',
-    photoUrl: '2020112414340059.jpg',
-  },
-  {
-    itemCName: 'lara',
-    itemPrice: 777,
-    itemInfo: '商品描述',
-    photoUrl: '2020112414340059.jpg',
-  },
+
 ]
 // console.log(youLikeitem)
 /////////////猜你也喜歡////////////////
@@ -132,7 +121,7 @@ recommended.innerHTML = recommendedItem
 
 
 var xhr = new XMLHttpRequest();
-
+// xhr.open('get','http://192.168.50.90:8083/erp_dev_20210914/productionSearch2.html',true)
 
 xhr.open('get','https://hexschool.github.io/ajaxHomework/data.json',true)
 //false就是他會等資料傳回來才讓程式碼繼續往下跑'
@@ -157,10 +146,16 @@ console.log(xhr.responseText)
 //那我該如何 設定在什麼情況才可以撈出資料呢?
 // 用 onload 意思指當我確認他跑完以後 再去執行這個事件
 xhr.onload=function(){
-  // console.
+  console.log(xhr.responseText)
+  let c=JSON.parse(xhr.responseText)
+  console.log(c[0].name)
+  // const c3=document.getElementById('c3')
+  
 }
 
-
+// post
+XMLDocument.setRequestHeader('content-type','application/x-www-form-urlencoded')
+xhr.send('em')
 
 
 
