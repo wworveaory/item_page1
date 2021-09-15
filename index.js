@@ -64,7 +64,8 @@ for (let i = 0; i < youLikeJson.length; i++) {
     <a>加入收藏</a>
     <a>詢價</a>
   </div>
-</div>`
+</div>
+`
 }
 youLike.innerHTML = youLikeitem
 
@@ -121,9 +122,8 @@ recommended.innerHTML = recommendedItem
 
 
 var xhr = new XMLHttpRequest();
-// xhr.open('get','http://192.168.50.90:8083/erp_dev_20210914/productionSearch2.html',true)
-
-xhr.open('get','https://hexschool.github.io/ajaxHomework/data.json',true)
+xhr.open('get','http://192.168.50.139:8080/erp_dev_20210914/servlet/ImageRequest?login=0939116815&brandCode=T2&categoryType=0',true)
+// xhr.open('get','https://hexschool.github.io/ajaxHomework/data.json',true)
 //false就是他會等資料傳回來才讓程式碼繼續往下跑'
 //用true了話xhr.responseText 跑不出來
 //true:非同步就是你傳送資料過去後 他不會等資料傳回來，先跳過讓其他程式往下跑，等到回傳才會自動回傳
@@ -148,14 +148,14 @@ console.log(xhr.responseText)
 xhr.onload=function(){
   console.log(xhr.responseText)
   let c=JSON.parse(xhr.responseText)
-  console.log(c[0].name)
+  // console.log(c[0].name)
   // const c3=document.getElementById('c3')
   
 }
 
 // post
-XMLDocument.setRequestHeader('content-type','application/x-www-form-urlencoded')
-xhr.send('em')
+// XMLDocument.setRequestHeader('content-type','application/x-www-form-urlencoded')
+// xhr.send('em')
 
 
 
