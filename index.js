@@ -151,9 +151,10 @@ xhr.send(null)
 // 用 onload 意思指當我確認他跑完以後 再去執行這個事件
 
 xhr.onload = function(){
-  var str=JSON.parse(xhr.responseText)
-  console.log(str)
-  // console.log(xhr.responseText)
+   console.log(xhr.responseText)
+  // var str=JSON.parse(xhr.responseText)
+  // console.log(str)
+ 
   // let str= xhr.responseText;
   // console.log(str);
   // let a=JSON.parse(str);
