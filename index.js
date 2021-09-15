@@ -122,6 +122,7 @@ recommended.innerHTML = recommendedItem
 
 
 var xhr = new XMLHttpRequest();
+
 xhr.open('get','http://192.168.50.90:8083/erp_dev_20210914/servlet/ImageRequest?login=0939116815&brandCode=T2&categoryType=0',true)
 // xhr.open('get','https://hexschool.github.io/ajaxHomework/data.json',true)
 //false就是他會等資料傳回來才讓程式碼繼續往下跑'
@@ -137,18 +138,26 @@ xhr.open('get','http://192.168.50.90:8083/erp_dev_20210914/servlet/ImageRequest?
 //3.loading
 //4.撈到內容了
 //撈完資料會觸發onload
+// xhr.seRequestHeader("Access-Control-Allow-Credentials", "true")
 xhr.send(null)
+
 //送出出資料 用null (因為我並沒有要傳送任何值 我只打算讀取任何資料)
 //除非要和對方伺服器詢問一些事情 才需寫post
 //如果要和後端伺服器問問題就用post(例如我問候端說，我現在傳送過去的帳密是否正確，後端會在回覆我是不是正確，就會回傳我一個字串，我在利用那個字串去做判斷)
-console.log(xhr.responseText)
+// console.log(xhr.responseText)
+
 // 目前撈不到資料 因為他不會等前後端串接的資料傳好，他會直接些跳過
 //那我該如何 設定在什麼情況才可以撈出資料呢?
 // 用 onload 意思指當我確認他跑完以後 再去執行這個事件
-xhr.onload=function(){
-  console.log(xhr.responseText)
-  let c=JSON.parse(xhr.responseText)
-  // console.log(c[0].name)
+
+xhr.onload = function(){
+  var str=JSON.parse(xhr.responseText)
+  console.log(str)
+  // console.log(xhr.responseText)
+  // let str= xhr.responseText;
+  // console.log(str);
+  // let a=JSON.parse(str);
+  // console.log(str)
   // const c3=document.getElementById('c3')
   
 }
