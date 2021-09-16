@@ -73,9 +73,9 @@ xhr.onload = function(){
 let youLikeitem = ''
 const youLike = document.getElementById('youLike')
 for(let i=0;i<boxA.length;i++){
-  if(i==2){
-    break
-  }
+
+  
+ 
   youLikeitem += `<div class="index-box">
   <!-- //上// -->
   <div class="like-product">
@@ -97,8 +97,8 @@ for(let i=0;i<boxA.length;i++){
 `
 
 
-
 }
+
 youLike.innerHTML = youLikeitem
   
 }
