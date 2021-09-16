@@ -22,102 +22,11 @@ for (let i = 0; i < changItem.length; i++) {
       prettygroup.style.display = 'block'
       c3cgroup.style.display = 'none'
       bargroup.style.display = 'none'
-    }5
+    }
   })
 }
 
-//////////////////假json資料//////1///////////////
-let youLikeJson = [
-  {
-    itemCName: 'mac',
-    itemPrice: 777,
-    itemInfo: '商品描述',
-    photoUrl: '2020112414340059.jpg',
-  },
-  {
-    itemCName: '小d',
-    itemPrice: 777,
-    itemInfo: '商品描述',
-    photoUrl: '2020112414340059.jpg',
-  },
 
-]
-// console.log(youLikeitem)
-/////////////猜你也喜歡////////////////
-let youLikeitem = ''
-const youLike = document.getElementById('youLike')
-for (let i = 0; i < youLikeJson.length; i++) {
-  youLikeitem += `<div class="index-box">
-  <!-- //上// -->
-  <div class="like-product">
-   <i class="fa fa-heart-o" style="color:red;font-size:24px" id=""> </i>
-  </div>
-  <div class="index-box1-pic"><img id="" class="grid-view-item__image lazyautosizes ls-is-cached lazyloaded"
-      alt="" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="1.7775"
-      data-sizes="auto" data-image="" src="./images/img/2020112414340059.jpg" />
-  </div>
-  <!-- //下// -->
-  <div class="index-box1-item">
-    <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">酒類10101</div>
-    <div class="h4 grid-view-item__title product-card__title-1" aria-hidden="true">
-      超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝!!</div>
-    <a>加入收藏</a>
-    <a>詢價</a>
-  </div>
-</div>
-`
-}
-youLike.innerHTML = youLikeitem
-
-/////////////////歷史購買渲染///////////////
-let historyitem = ''
-const historyPurchase = document.getElementById('historyPurchase')
-for (let i = 0; i < youLikeJson.length; i++) {
-  historyitem += `<div class="index-box">
-  <!-- //上// -->
-  <div class="like-product">
-   <i class="fa fa-heart-o" style="color:red;font-size:24px" id=""> </i>
-  </div>
-  <div class="index-box1-pic"><img id="" class="grid-view-item__image lazyautosizes ls-is-cached lazyloaded"
-      alt="" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="1.7775"
-      data-sizes="auto" data-image="" src="./images/img/2020112414340059.jpg" />
-  </div>
-  <!-- //下// -->
-  <div class="index-box1-item">
-    <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">酒類10101</div>
-    <div class="h4 grid-view-item__title product-card__title-1" aria-hidden="true">
-      超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝!!</div>
-    <a>加入收藏</a>
-    <a>詢價</a>
-  </div>
-</div>`
-}
-historyPurchase.innerHTML = historyitem
-
-/////////////////推薦商品///////////////////
-let recommendedItem = ''
-const recommended = document.getElementById('recommended')
-for (let i = 0; i < youLikeJson.length; i++) {
-  recommendedItem += `<div class="index-box">
-  <!-- //上// -->
-  <div class="like-product">
-   <i class="fa fa-heart-o" style="color:red;font-size:24px" id=""> </i>
-  </div>
-  <div class="index-box1-pic"><img id="" class="grid-view-item__image lazyautosizes ls-is-cached lazyloaded"
-      alt="" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="1.7775"
-      data-sizes="auto" data-image="" src="./images/img/2020112414340059.jpg" />
-  </div>
-  <!-- //下// -->
-  <div class="index-box1-item">
-    <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">酒類10101</div>
-    <div class="h4 grid-view-item__title product-card__title-1" aria-hidden="true">
-      超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝!!</div>
-    <a>加入收藏</a>
-    <a>詢價</a>
-  </div>
-</div>`
-}
-recommended.innerHTML = recommendedItem
 ////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -150,22 +59,47 @@ xhr.send(null)
 //那我該如何 設定在什麼情況才可以撈出資料呢?
 // 用 onload 意思指當我確認他跑完以後 再去執行這個事件
 
+
+///////////////////拿到json和渲染//////////////////////////
 xhr.onload = function(){
-   console.log(xhr.responseText)
-  // var str=JSON.parse(xhr.responseText)
-  // console.log(str)
- 
-  // let str= xhr.responseText;
-  // console.log(str);
-  // let a=JSON.parse(str);
-  // console.log(str)
-  // const c3=document.getElementById('c3')
+  //  console.log(xhr.responseText)
+  var str=JSON.parse(xhr.responseText)
+  // console.log(str[0])
+  let boxA= str[0].items
+  // console.log(boxA.length)
+// for(let i=0;i<boxA.length;i++){
+//   console.log(i)
+// }
+let youLikeitem = ''
+const youLike = document.getElementById('youLike')
+for(let i=0;i<15;i++){
+  youLikeitem += `<div class="index-box">
+  <!-- //上// -->
+  <div class="like-product">
+   <i class="fa fa-heart-o" style="color:red;font-size:24px" id=""> </i>
+  </div>
+  <div class="index-box1-pic"><img id="" class="grid-view-item__image lazyautosizes ls-is-cached lazyloaded"
+      alt="" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="1.7775"
+      data-sizes="auto" data-image="" src="./images/img/2020112414340059.jpg" />
+  </div>
+  <!-- //下// -->
+  <div class="index-box1-item">
+    <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">酒類10101</div>
+    <div class="h4 grid-view-item__title product-card__title-1" aria-hidden="true">
+      超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝!!</div>
+    <a>加入收藏</a>
+    <a>詢價</a>
+  </div>
+</div>
+`
+
+
+
+}
+youLike.innerHTML = youLikeitem
   
 }
-
-// post
-// XMLDocument.setRequestHeader('content-type','application/x-www-form-urlencoded')
-// xhr.send('em')
+//////////
 
 
 
@@ -173,32 +107,81 @@ xhr.onload = function(){
 
 
 
-// 方法
-//responseText要拿到資訊
-// xhr.onreadystatechange = function(){
-//     if(xhr.readyState === 4 ){
-//         if(xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
-//             console.log(xhr.responseText);
-//         }
-//     }
+
+
+
+/////////////猜你也喜歡////////////////
+// let youLikeitem = ''
+// const youLike = document.getElementById('youLike')
+// for (let i = 0; i < youLikeJson.length; i++) {
+//   youLikeitem += `<div class="index-box">
+//   <!-- //上// -->
+//   <div class="like-product">
+//    <i class="fa fa-heart-o" style="color:red;font-size:24px" id=""> </i>
+//   </div>
+//   <div class="index-box1-pic"><img id="" class="grid-view-item__image lazyautosizes ls-is-cached lazyloaded"
+//       alt="" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="1.7775"
+//       data-sizes="auto" data-image="" src="./images/img/2020112414340059.jpg" />
+//   </div>
+//   <!-- //下// -->
+//   <div class="index-box1-item">
+//     <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">酒類10101</div>
+//     <div class="h4 grid-view-item__title product-card__title-1" aria-hidden="true">
+//       超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝!!</div>
+//     <a>加入收藏</a>
+//     <a>詢價</a>
+//   </div>
+// </div>
+// `
 // }
-// // 处理请求参数
-// postData = {"name1":"value1","name2":"value2"};
-// postData = (function(value){
-// var dataString = "";
-// for(var key in value){
-//      dataString += key+"="+value[key]+"&";
-// };
-//   return dataString;
-// }(postData));
-// // 设置请求头
-// xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-// // 异常处理
-// xhr.onerror = function() {
-//    console.log('Network request failed')
-// }
-// // 跨域携带cookie
-// xhr.withCredentials = true;
-// // 发出请求
-// xhr.send(postData);
+// youLike.innerHTML = youLikeitem
 
+/////////////////歷史購買渲染///////////////
+// let historyitem = ''
+// const historyPurchase = document.getElementById('historyPurchase')
+// for (let i = 0; i < youLikeJson.length; i++) {
+//   historyitem += `<div class="index-box">
+//   <!-- //上// -->
+//   <div class="like-product">
+//    <i class="fa fa-heart-o" style="color:red;font-size:24px" id=""> </i>
+//   </div>
+//   <div class="index-box1-pic"><img id="" class="grid-view-item__image lazyautosizes ls-is-cached lazyloaded"
+//       alt="" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="1.7775"
+//       data-sizes="auto" data-image="" src="./images/img/2020112414340059.jpg" />
+//   </div>
+//   <!-- //下// -->
+//   <div class="index-box1-item">
+//     <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">酒類10101</div>
+//     <div class="h4 grid-view-item__title product-card__title-1" aria-hidden="true">
+//       超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝!!</div>
+//     <a>加入收藏</a>
+//     <a>詢價</a>
+//   </div>
+// </div>`
+// }
+// historyPurchase.innerHTML = historyitem
+
+/////////////////推薦商品///////////////////
+// let recommendedItem = ''
+// const recommended = document.getElementById('recommended')
+// for (let i = 0; i < youLikeJson.length; i++) {
+//   recommendedItem += `<div class="index-box">
+//   <!-- //上// -->
+//   <div class="like-product">
+//    <i class="fa fa-heart-o" style="color:red;font-size:24px" id=""> </i>
+//   </div>
+//   <div class="index-box1-pic"><img id="" class="grid-view-item__image lazyautosizes ls-is-cached lazyloaded"
+//       alt="" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="1.7775"
+//       data-sizes="auto" data-image="" src="./images/img/2020112414340059.jpg" />
+//   </div>
+//   <!-- //下// -->
+//   <div class="index-box1-item">
+//     <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">酒類10101</div>
+//     <div class="h4 grid-view-item__title product-card__title-1" aria-hidden="true">
+//       超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝!!</div>
+//     <a>加入收藏</a>
+//     <a>詢價</a>
+//   </div>
+// </div>`
+// }
+// recommended.innerHTML = recommendedItem
