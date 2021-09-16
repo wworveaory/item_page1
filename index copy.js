@@ -32,8 +32,8 @@ for (let i = 0; i < changItem.length; i++) {
 
 var xhr = new XMLHttpRequest();
 
-xhr.open('get','http://192.168.50.90:8083/erp_dev_20210914/servlet/ImageRequest?login=0939116815&brandCode=T2&categoryType=0',true)
-// xhr.open('get','https://hexschool.github.io/ajaxHomework/data.json',true)
+// xhr.open('get','http://192.168.50.90:8083/erp_dev_20210914/servlet/ImageRequest?login=0939116815&brandCode=T2&categoryType=0',true)
+xhr.open('get','https://hexschool.github.io/ajaxHomework/data.json',true)
 //false就是他會等資料傳回來才讓程式碼繼續往下跑'
 //用true了話xhr.responseText 跑不出來
 //true:非同步就是你傳送資料過去後 他不會等資料傳回來，先跳過讓其他程式往下跑，等到回傳才會自動回傳
@@ -65,14 +65,14 @@ xhr.onload = function(){
   //  console.log(xhr.responseText)
   var str=JSON.parse(xhr.responseText)
   // console.log(str[0])
-  let boxA= str[0].items
+  // let boxA= str[0].items
   // console.log(boxA.length)
 // for(let i=0;i<boxA.length;i++){
 //   console.log(i)
 // }
 let youLikeitem = ''
 const youLike = document.getElementById('youLike')
-for(let i=0;i<boxA.length;i++){
+for(let i=0;i<str.length;i++){
   youLikeitem += `<div class="index-box">
   <!-- //上// -->
   <div class="like-product">

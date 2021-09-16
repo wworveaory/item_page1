@@ -1,0 +1,48 @@
+select h."CUSTOMS_NO" "CUSTOMS_NO", 
+h."FLIGHT_NO" "FLIGHT_NO" , 
+ i."ITEM_CODE" "ITEM_CODE", 
+s.item_c_name,   
+s.iteM_brand, 
+i."ACTUAL_UNIT_PRICE" "ACTUAL_UNIT_PRICE", 
+i.QUANTITY,  
+h.ACTUAL_TOTAL_FRN_SALES_AMT, 
+ h."CASHER_CODE" "CASHER_CODE",  
+i."ORIGINAL_UNIT_PRICE"  "ORIGINAL_UNIT_PRICE" , 
+i.index_no, 
+(SELECT a.chinese_name FROM bu_employee b ,bu_address_book a WHERE b.employee_code = h.casher_code and b.address_book_id = a.address_book_id)AS CASHER_name,  
+(SELECT a.chinese_name FROM bu_employee b ,bu_address_book a WHERE b.employee_code = h.SUPERINTENDENT_code and b.address_book_id = a.address_book_id)AS SUPERINTENDENT_name,   
+(SELECT a.RESERVE1 FROM  bu_shop_machine a WHERE a.pos_machine_code = h.pos_machine_code and shop_code = h.shop_code )AS shop_code,
+ i."IS_TAX" "IS_TAX",
+ h."SALES_ORDER_DATE" "SALES_ORDER_DATE",
+ h."CUSTOMER_CODE" "CUSTOMER_CODE",  
+h."STATUS" "STATUS", 
+h."COUNTRY_CODE" "COUNTRY_CODE",  
+h."PASSPORT_NO_SALES" "PASSPORT_NO_SALES", 
+h."GUI_CODE" "GUI_CODE" , 
+h."SUPERINTENDENT_CODE"  "SUPERINTENDENT_CODE" , 
+ 
+
+(SELECT a.chinese_name FROM bu_address_book a, bu_customer b WHERE a.address_book_id = b.address_book_id and a."IDENTITY_CODE"= h."CUSTOMER_CODE") as customer_name, 
+ 
+(SELECT  a.address  FROM bu_address_book a, bu_customer b WHERE a.address_book_id = b.address_book_id and a."IDENTITY_CODE"= h."CUSTOMER_CODE") as customer_address,  
+
+(SELECT  a.delivery_address  FROM bu_address_book a, bu_customer b WHERE a.address_book_id = b.address_book_id and a."IDENTITY_CODE"= h."CUSTOMER_CODE") as delivery_address,   
+ (select BU.NAME from ERP.BU_COMMON_PHRASE_LINE BU where BU.HEAD_CODE = 'DayTourGroup' and ( BU.LINE_CODE = substr(Upper( h."FLIGHT_NO"),1,instr(Upper( h."FLIGHT_NO"),'-')-1) or BU.LINE_CODE = Upper( h."FLIGHT_NO"))) AS GROUP_NAME, 
+  (SELECT  a.mobile_phone  FROM bu_address_book a, bu_customer b WHERE a.address_book_id = b.address_book_id and a."IDENTITY_CODE"= h."CUSTOMER_CODE") as mobile_phone ,   
+(SELECT  a.city  FROM bu_address_book a, bu_customer b WHERE a.address_book_id = b.address_book_id and a."IDENTITY_CODE"= h."CUSTOMER_CODE") as city ,   
+h.APP_CUSTOMER_CODE, 
+h.EVENT_CODE,  
+s.category02,  
+(SELECT b.REMARK1 from bu_customer b where  b.brand_code = h.brand_code and b.customer_code = h.customer_code) AS REMARK1 ,
+(SELECT b.REMARK2 from bu_customer b where  b.brand_code = h.brand_code and b.customer_code = h.customer_code) AS REMARK2 ,
+(SELECT c1.category_name
+ FROM im_item_category c1 WHERE h.brand_code = c1.brand_code AND s.category02 = c1.category_code AND c1.category_type = 'CATEGORY02')AS category02_name, 
+(SELECT c1.category_name
+ FROM im_item_category c1 WHERE h.brand_code = c1.brand_code AND s.category01 = c1.category_code AND c1.category_type = 'CATEGORY01')AS category01_name
+from "ERP"."SO_SALES_ORDER_HEAD" h , "ERP"."SO_SALES_ORDER_ITEM" i, ERP.IM_ITEM s 
+ where (  h."BRAND_CODE" = 'T2'
+  and h."SALES_ORDER_DATE" >= to_char(sysdate-4 , 'yyyymmdd') 
+and h."HEAD_ID" = i."HEAD_ID"  
+and h."ORDER_TYPE_CODE" = 'SVP'  
+ and h.brand_code = s.brand_code and
+i.item_code = s.item_code  )
