@@ -66,16 +66,13 @@ xhr.onload = function(){
   var str=JSON.parse(xhr.responseText)
   // console.log(str[0])
   let boxA= str[0].items
-  // console.log(boxA.length)
+  console.log(boxA.length)
 // for(let i=0;i<boxA.length;i++){
 //   console.log(i)
 // }
 let youLikeitem = ''
 const youLike = document.getElementById('youLike')
 for(let i=0;i<boxA.length;i++){
-
-  
- 
   youLikeitem += `<div class="index-box">
   <!-- //上// -->
   <div class="like-product">
@@ -95,10 +92,7 @@ for(let i=0;i<boxA.length;i++){
   </div>
 </div>
 `
-
-
 }
-
 youLike.innerHTML = youLikeitem
   
 }

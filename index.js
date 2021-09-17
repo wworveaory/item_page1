@@ -31,7 +31,7 @@ for (let i = 0; i < changItem.length; i++) {
 
 
 var xhr = new XMLHttpRequest();
-
+// const document
 xhr.open('get','http://192.168.50.90:8083/erp_dev_20210914/servlet/ImageRequest?login=0939116815&brandCode=T2&categoryType=0',true)
 // xhr.open('get','https://hexschool.github.io/ajaxHomework/data.json',true)
 //false就是他會等資料傳回來才讓程式碼繼續往下跑'
@@ -66,7 +66,7 @@ xhr.onload = function(){
   var str=JSON.parse(xhr.responseText)
   // console.log(str[0])
   let boxA= str[0].items
-  // console.log(boxA.length)
+  console.log(boxA.length)
 // for(let i=0;i<boxA.length;i++){
 //   console.log(i)
 // }
