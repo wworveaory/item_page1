@@ -31,8 +31,24 @@ for (let i = 0; i < changItem.length; i++) {
 
 
 var xhr = new XMLHttpRequest();
-// const document
-xhr.open('get','http://192.168.50.90:8083/erp_dev_20210914/servlet/ImageRequest?login=0939116815&brandCode=T2&categoryType=0',true)
+let log=location.search.substring(1, location.search.length).split('&');
+// const login=document.getElementById('login')
+// let usernumber
+//   usernumber+=login.value
+let cc=log[0]
+console.log(cc)
+//把資料放進本地端伺服器
+localStorage.setItem('aa',cc)
+//使用本地端的資料
+localStorage.getItem('aa')
+// sessionStorage.setItem(key, value)
+
+let dd=`http://192.168.50.90:8083/erp_dev_20210914/servlet/ImageRequest?${cc}&brandCode=T2&categoryType=0`
+console.log(dd)
+
+
+
+xhr.open('get',dd,true)
 // xhr.open('get','https://hexschool.github.io/ajaxHomework/data.json',true)
 //false就是他會等資料傳回來才讓程式碼繼續往下跑'
 //用true了話xhr.responseText 跑不出來
@@ -49,7 +65,7 @@ xhr.open('get','http://192.168.50.90:8083/erp_dev_20210914/servlet/ImageRequest?
 //撈完資料會觸發onload
 // xhr.seRequestHeader("Access-Control-Allow-Credentials", "true")
 xhr.send(null)
-
+// alert('293')
 //送出出資料 用null (因為我並沒有要傳送任何值 我只打算讀取任何資料)
 //除非要和對方伺服器詢問一些事情 才需寫post
 //如果要和後端伺服器問問題就用post(例如我問候端說，我現在傳送過去的帳密是否正確，後端會在回覆我是不是正確，就會回傳我一個字串，我在利用那個字串去做判斷)
@@ -58,15 +74,22 @@ xhr.send(null)
 // 目前撈不到資料 因為他不會等前後端串接的資料傳好，他會直接些跳過
 //那我該如何 設定在什麼情況才可以撈出資料呢?
 // 用 onload 意思指當我確認他跑完以後 再去執行這個事件
-
-
+// const login=document.getElementById('login')
+// let usernumber
+//   usernumber+=login.value
+//   login.value.innerHTML=usernumber
+//   console.log(usernumber)
+//let usernumber
 ///////////////////拿到json和渲染//////////////////////////
 xhr.onload = function(){
+
+
+
   //  console.log(xhr.responseText)
   var str=JSON.parse(xhr.responseText)
   // console.log(str[0])
   let boxA= str[0].items
-  console.log(boxA.length)
+  // console.log(boxA.length)
 // for(let i=0;i<boxA.length;i++){
 //   console.log(i)
 // }
@@ -83,7 +106,7 @@ for(let i=0;i<boxA.length;i++){
   </div>
   <div class="index-box1-pic"><img id="" class="grid-view-item__image lazyautosizes ls-is-cached lazyloaded"
       alt="" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="1.7775"
-      data-sizes="auto" data-image="" src="./images/img/2020112414340059.jpg" />
+      data-sizes="auto" data-image="" src="${boxA[i].photoUrl}" />
   </div>
   <!-- //下// -->
   <div class="index-box1-item">

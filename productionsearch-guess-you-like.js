@@ -31,8 +31,20 @@ for (let i = 0; i < changItem.length; i++) {
 
 
 var xhr = new XMLHttpRequest();
+let log=location.search.substring(1, location.search.length).split('&');
+// const login=document.getElementById('login')
+// let usernumber
+//   usernumber+=login.value
+let tt= localStorage.getItem('aa')
+console.log(tt)
+// let cc=log[0]
+// console.log(cc)
+// let cc=`http://192.168.50.90:8083/erp_dev_20210914/productionsearch-guess-you-like.html?login=0952162808&brandCode=T2&categoryType=0`
 
-xhr.open('get','http://192.168.50.90:8083/erp_dev_20210914/servlet/ImageRequest?login=0939116815&brandCode=T2&categoryType=0',true)
+let dd=`http://192.168.50.90:8083/erp_dev_20210914/servlet/ImageRequest?${tt}&brandCode=T2&categoryType=0`
+
+xhr.open('get',dd,true)
+// xhr.open('get','http://192.168.50.90:8083/erp_dev_20210914/servlet/ImageRequest?login=0952162808&brandCode=T2&categoryType=0',true)
 // xhr.open('get','https://hexschool.github.io/ajaxHomework/data.json',true)
 //false就是他會等資料傳回來才讓程式碼繼續往下跑'
 //用true了話xhr.responseText 跑不出來
