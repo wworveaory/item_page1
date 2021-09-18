@@ -87,7 +87,7 @@ xhr.onload = function(){
 
   //  console.log(xhr.responseText)
   var str=JSON.parse(xhr.responseText)
-  // console.log(str[0])
+  console.log(str[0])
   let boxA= str[0].items
   // console.log(boxA.length)
 // for(let i=0;i<boxA.length;i++){
