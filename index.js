@@ -41,7 +41,7 @@ let log=location.search.substring(1, location.search.length).split('&');
 // let usernumber
 //   usernumber+=login.value
 let cc=log[0]
-console.log(cc)
+console.log(typeof cc)
 //把資料放進本地端伺服器
 localStorage.setItem('aa',cc)
 //使用本地端的資料
