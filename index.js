@@ -109,7 +109,7 @@ for(let i=0;i<boxA.length;i++){
   </div>
   <div class="index-box1-pic"><img id="" class="grid-view-item__image lazyautosizes ls-is-cached lazyloaded"
       alt="" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="1.7775"
-      data-sizes="auto" data-image="" src="./images/img/wine.jpg" />
+      data-sizes="auto" data-image="" src="${boxA[i].photoUrl}" />
      
   </div>
 
