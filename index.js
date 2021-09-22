@@ -89,8 +89,9 @@ xhr.send(null)
 xhr.onload = function(){
   //  console.log(xhr.responseText)
   var str=JSON.parse(xhr.responseText)
-  console.log(str[0])
+  // console.log(str[0])
   let boxA= str[0].items
+  console.log(boxA[0].photoUrl)
   // console.log(boxA.length)
 // for(let i=0;i<boxA.length;i++){
 //   console.log(i)
@@ -108,7 +109,7 @@ for(let i=0;i<boxA.length;i++){
   </div>
   <div class="index-box1-pic"><img id="" class="grid-view-item__image lazyautosizes ls-is-cached lazyloaded"
       alt="" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="1.7775"
-      data-sizes="auto" data-image="" src="./images/img/2020112414340059.jpg" />
+      data-sizes="auto" data-image="" src="${boxA[i].photoUrl}" />
   </div>
   <!-- //下// -->
   <div class="index-box1-item">
