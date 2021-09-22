@@ -1,25 +1,28 @@
-const changItem = document.querySelectorAll('.chang-phone-item')
+const changPhoneItem = document.querySelectorAll('.chang-phone-item')
 const vipgroup = document.getElementById('vip-group')
 const c3cgroup = document.getElementById('c3c-group')
 const prettygroup = document.getElementById('pretty-group')
 const bargroup = document.getElementById('bar-group')
-
-console.log(changItem.length)
-for (let i = 0; i < changItem.length; i++) {
+const boutiquegroup=document.getElementById('boutique-group')
+console.log(changPhoneItem.length)
+for (let i = 0; i < changPhoneItem.length; i++) {
   console.log(i)
-  changItem[i].addEventListener('click', function (e) {
+  changPhoneItem[i].addEventListener('click', function (e) {
     console.log(i)
     if (i == 0) {
       console.log('0')
       vipgroup.style.display = 'block'
+      boutiquegroup.style='none'
       prettygroup.style.display = 'none'
       c3cgroup.style.display = 'none'
       bargroup.style.display = 'none'
+  
     }
     if (i == 1) {
       console.log('1')
       vipgroup.style.display = 'none'
-      prettygroup.style.display = 'block'
+      boutiquegroup.style='block'
+      prettygroup.style.display = 'none'
       c3cgroup.style.display = 'none'
       bargroup.style.display = 'none'
     }
@@ -95,7 +98,7 @@ xhr.onload = function(){
 let youLikeitem = ''
 const youLike = document.getElementById('youLike')
 for(let i=0;i<boxA.length;i++){
-  if(i==2){
+  if(i==4){
     break
   }
   youLikeitem += `<div class="index-box">
