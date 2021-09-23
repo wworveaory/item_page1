@@ -432,12 +432,12 @@ nav span {
   height: 30px;
   fill: #ffff;
 }
-.icon-wine{
+.icon-32{
   width: 32px;
   height:32px;
   fill: #ffff;
 }
-.icon-cosmetics{
+/* .icon-cosmetics{
   width: 32px;
   height: 32px;
   fill: #ffff;
@@ -453,7 +453,7 @@ nav span {
   height: 32px;
   fill: #ffff;
 
-}
+} */
 .navbartop-left{
   text-align: left;
 }
