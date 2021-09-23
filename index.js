@@ -117,7 +117,7 @@ for(let i=0;i<boxA.length;i++){
   <div class="index-box1-item">
     <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">${boxA[i].itemCName}</div>
     <div class="h4 grid-view-item__title product-card__title-1" aria-hidden="true">
-      超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝超好喝!!</div>
+    商品資訊JSON資訊商品資訊品資訊JSON資訊商品資訊JSON資訊商品資訊JSON資訊商品資訊JSON資訊!</div>
     <a>加入收藏</a>
     <a>詢價${boxA[i].unitPrice}</a>
   </div>
